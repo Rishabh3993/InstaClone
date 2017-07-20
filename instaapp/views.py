@@ -6,7 +6,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render, redirect
 from forms import SignUpForm, LoginForm # PostForm
-from models import UserModel # SessionToken, PostModel
+from models import UserModel, SessionToken # PostModel
 from django.contrib.auth.hashers import make_password, check_password
 from datetime import timedelta
 from django.utils import timezone
@@ -56,3 +56,17 @@ def login_view(request):
 
     response_data['form'] = form
     return render(request, 'login.html', response_data)
+
+
+def feed_view(request):
+    return render(request, 'feed.html')
+
+
+# For validating the session
+def check_validation(request):
+    if request.COOKIES.get('session_token'):
+        session = SessionToken.objects.filter(session_token=request.COOKIES.get('session_token')).first()
+        if session:
+            return session.user
+    else:
+        return None

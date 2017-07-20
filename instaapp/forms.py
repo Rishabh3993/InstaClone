@@ -1,5 +1,5 @@
 from django import forms
-from models import UserModel, PostModel
+from models import UserModel # PostModel
 
 
 class SignUpForm(forms.ModelForm):

@@ -17,13 +17,13 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from django.conf.urls import url
-#from django.contrib import admin
-#from django.conf import settings
-#from django.conf.urls.static import static
-from instaClone.views import signup_view, login_view #feed_view, post_view
+from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
+from instaapp.views import signup_view, login_view, feed_view # post_view
 
 urlpatterns = [
-    #url('feed/', feed_view),
-    url('login/', login_view),
+    url('feed.html', feed_view),
+    url('login.html', login_view),
     url('', signup_view)
 ]
