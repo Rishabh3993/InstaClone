@@ -3,7 +3,7 @@ from sendgrid.helpers.mail import *
 
 def send_notification(user, comment_text):
     my_client = sendgrid.SendGridAPIClient(apikey='X')
-    # sendgrid key = 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
+    
 
     from_email = Email("insta.mriu.test.0@gmail.com")
     to_email = Email("insta.mriu.test.1@gmail.com")
