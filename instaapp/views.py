@@ -88,7 +88,7 @@ def post_view(request):
                 post = PostModel(user=user, image=image, caption=caption)
                 path = str(BASE_DIR +"/"  +post.image.url)
 
-                client = ImgurClient("1dca21b501e1c9e","4a37d204768918de1309e603feafbbff7bf9e4fc")
+                client = ImgurClient("a6aafcb28ec79df","d080ec60896f82ded7822335c1e42ecda3170efa")
                 post.image_url = client.upload_from_path(path, anon=True)['link']
 
                 # clarifai_response = get_keywords(post.image_url)
@@ -98,18 +98,12 @@ def post_view(request):
                 #     value = array_dictionary[i]['value']
                 #     if (key_word == "summer" or "outdoor pool" or "garden" or "mountains" and value >0.5):
 
-
-
-
-
-
-
-
                 post.save()
                 return redirect('/feed/')
 
     else:
         return redirect('/login/')
+
 
 def feed_view(request):
     user = check_validation(request)
