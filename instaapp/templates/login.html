@@ -2,22 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Title</title>
+
+    <style>
+    body{
+    text-align:center;
+    background-size: cover;
+    background-image : url("http://www.wallpaperhdc.com/wp-content/uploads/2017/06/photography-wallpaper-in-hd-hd-images-1.jpg");
+    background-position: center;
+    background-repeat : no-repeat;
+    color: black;
+    font-size: 30px;
+    margin-top: 200px;
+    }
+    input[type="text"]
+    {
+    padding: 6px 10px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    width: 25em;
+    height: 3em;
+    }
+    input[type="password"]
+    {
+    padding: 6px 10px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    width : 25em;
+    height: 3em;
+    }
+    input[type="submit"]
+    {
+    width: 15em;
+    height: 2.5em;
+    color: white;
+    background: orange;
+    border-radius: 8px;
+    font-size: 15px;
+    }
+    </style>
 </head>
 <body>
-    <form method="post">
+<form method="post">
+    {% csrf_token %}
 
-        <div>
-            <label for="username">Username: </label>
-            <input id="username" type="text" name="username" value={{ username }}>
-        </div>
+      <div>
 
-        <div>
-            <label for="password">Password: </label>
-            <input id="password" type="password" name="password" value={{ password }}>
-        </div>
+          <input id="username" type="text" name="username" placeholder="Enter your username" value={{ username }}>
+      </div>
 
-        <input type="submit" value="Log In">
+      <div>
+
+          <input id="password" type="password" name="password" placeholder="Enter password" value={{ password }}>
+      </div>
+
+      <input type="submit" value="Log In">
 
     </form>
 

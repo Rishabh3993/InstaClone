@@ -2,42 +2,86 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Instagram Clone</title>
+    <title>Instaclone</title>
+
+    <style>
+    body{
+    text-align:center;
+    background-position: center;
+    color: white;
+    font-style : normal;
+    font-size: 20px;
+    background-image : url("https://images.freecreatives.com/wp-content/uploads/2015/05/HD-Vintage-Photography-Wallpaper.jpg");
+    background-repeat: no-repeat;
+    }
+    input[type="submit"]
+    {
+    width: 15em;
+    height: 2.5em;
+    color: white;
+    background: orange;
+    border-radius: 8px;
+    font-size: 15px;
+    }
+    input[type="text"]
+    {
+    padding: 6px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    }
+    input[type="password"]
+    {
+    padding: 6px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    }
+    label
+    {
+    display: inline-block;
+    clear: left;
+    width: 100px;
+    text-align: left;
+    }
+    </style>
 </head>
 <body>
-	<div class="main">
-            <h1> Instagram Clone</h1>
-            <h3>Sign Up</h3>
-    </div>
+<div class="main">
+            <h1> Welcome to InstaClone</h1>
+            <h3>Register First!!</h3>
+            <!--<h4>{{today}}</h4>-->
+          </div>
 
-    <div>
-        <form method="post">
+<form method="post">
+    {% csrf_token %}
+       <div>
+           <label for="username">Username: </label>
+           <input id="username" type="text" name="username" value="{{username}}">
+       </div>
 
-            <div>
-                <label for="username">Username: </label>
-                <input id="username" type="text" name="username" value= {{ username }}>
-            </div>
+       <div>
+           <label for="name">Name: </label>
+           <input id="name" type="text" name="name" value="{{name}}">
+       </div>
 
-            <div>
-                <label for="name">Name: </label>
-                <input id="name" type="text" name="name" value= {{ name }}>
-            </div>
+       <div>
+           <label for="email">Email: </label>
+           <input id="email" type="text" name="email" value="{{email}}" placeholder = "Eg: xyz@ymail.com">
+       </div>
 
-            <div>
-                <label for="email">Email: </label>
-                <input id="email" type="text" name="email" value= {{ email }}>
-            </div>
-
-            <div>
-                <label for="password">Password: </label>
-                <input id="password" type="password" name="password" value= {{ password }}>
-            </div>
-                <input type="submit" value="Sign Up">
-        </form>
+       <div>
+           <label for="password">Password: </label>
+           <input id="password" type="password" name="password" value="{{password}}">
+       </div>
 
 
-    </div><br><br>
+    <input type="submit" value="Sign Up">
+    </form>
 
-    <div><h3>Already a user?</h3><a href="login.html">Login</a> </div>
+
+<h5><i>Already a user??</i></h5>
+ <form action="/login/" method="get">
+        <input type="submit"  value="Login">
+    </form>
+
 </body>
 </html>
